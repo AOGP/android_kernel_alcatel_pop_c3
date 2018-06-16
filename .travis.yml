@@ -38,4 +38,17 @@ script:
 after_success:
   - curl --upload-file arch/arm/boot/zImage https://transfer.sh/pop_c3_kernel
   
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key: "$GIT_OAUTH_TOKEN_TB"
+  
+  on:
+    tags: false
+    repo: AOGP/android_kernel_alcatel_pop_c3
+    branch: master
+branches:
+  except:
+    - /^(?i:untagged)-.*$/
+  
   
