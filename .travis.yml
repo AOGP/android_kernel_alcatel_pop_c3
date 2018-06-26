@@ -40,7 +40,7 @@ script:
   - export KBUILD_BUILD_HOST="ALGPHELLO"
   - KERNEL_DIR=$PWD/android_kernel_alcatel_pop_c3
   - ZIMAGE=$KERNEL_DIR/arch/arm/boot/zImage
-  - mkdir /home/travis/build/ALGPHELLO/android_kernel_alcatel_pop_c3/tools/tools
+  - mkdir /home/travis/build/AOGP/android_kernel_alcatel_pop_c3/tools/tools
   - make pop_c3_defconfig  
   - bash build.sh
   - make -j16
