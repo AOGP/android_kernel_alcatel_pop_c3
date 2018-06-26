@@ -29,13 +29,21 @@ script:
   - export CROSS_COMPILE=~/arm-eabi-4.8/bin/arm-eabi-
   #- export KBUILD_BUILD_USER="root"
   #- export KBUILD_BUILD_HOST="Manish4586"
+  #- KERNEL_DIR=$PWD/android_kernel_alcatel_pop_c3
+  #- ZIMAGE=$KERNEL_DIR/arch/arm/boot/zImage
+  #- mkdir -p out
+  #- make O=out clean
+  #- make O=out mrproper
+  #- make O=out pop_c3_defconfig 
+  #- make O=out -j4 
+  - export KBUILD_BUILD_USER="fujitsu"
+  - export KBUILD_BUILD_HOST="ALGPHELLO"
   - KERNEL_DIR=$PWD/android_kernel_alcatel_pop_c3
-  - ZIMAGE=$KERNEL_DIR/arch/arm/boot/zImage
-  - mkdir -p out
-  - make O=out clean
-  - make O=out mrproper
-  - make O=out pop_c3_defconfig 
-  - make O=out -j4 
+  - ZIMAGE=$KERNEL_DIR/arch/arm64/boot/zImage
+  - mkdir /home/travis/build/ALGPHELLO/android_kernel_alcatel_pop_c3/tools/tools
+  - make pop_c3_defconfig  
+  - bash build.sh
+  - make -j16
   #- make ARCH=arm -j4 clean mrproper
 
 after_success:
