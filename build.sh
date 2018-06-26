@@ -12,8 +12,8 @@ curdir=`pwd`
 if [ "${KBUILD_OUTPUT_SUPPORT}" == "yes" ];then
   outdir=../${MTK_ROOT_OUT}/KERNEL_OBJ
   mkdir -p $outdir
-  mkdir -p mediatek/custom
-  ln -fns ../../../${MTK_ROOT_CUSTOM_OUT} mediatek/custom/out
+  mkdir -p out
+  ln -fns ../../../${MTK_ROOT_CUSTOM_OUT} out
 fi
 
 usage() {
@@ -61,7 +61,7 @@ while test -n "$1"; do
     shift
 done
 
-source ../mediatek/build/shell.sh ../ kernel
+#source ../mediatek/build/shell.sh ../ kernel
 defcfg="${MTK_ROOT_GEN_CONFIG}/kconfig"
 if [ "${KBUILD_OUTPUT_SUPPORT}" == "yes" ]; then
   makeflags+=" O=$outdir"
